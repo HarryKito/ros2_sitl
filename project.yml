@@ -7,6 +7,8 @@ services:
         DISPLAY: host.docker.internal:0.0
     ports:
         - "10000:10000"
+        - "22":"22" # for ssh
+        - "8888":"8888" # for jupter and web like
     stdin_open: true
     tty: true
     entrypoint: /bin/bash
