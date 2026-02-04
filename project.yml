@@ -1,14 +1,21 @@
 name: ardupilot_gazebo_ros2
 services:
   ros2:
-    image: osrf/ros:humble-desktop-full
-    container_name: ros2-humble
+    build: .
+    container_name: ros-humble-ardupilot-sitl
+
     environment:
         DISPLAY: host.docker.internal:0.0
+
     ports:
         - "10000:10000"
         - "22:22"       # for ssh
         - "8888:8888"   # for jupter and web like
     stdin_open: true
     tty: true
+
+    volumes:
+      - ./ardupilot:/ardupilot
+    working_dir: /ardupilot
+
     entrypoint: /bin/bash

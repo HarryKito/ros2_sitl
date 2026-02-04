@@ -9,10 +9,10 @@
 This document was written on the assumption that aleardy you are friendly with docker.  
 [Windows](#WINDOWS)  
 [MacOS](#Mac)  
-
+[Both](#both-windows--macos)
 # WINDOWS
 ### Ready for project
-1. Download the X Server(VcXsrv)
+1. Download the X Server[(VcXsrv)](https://vcxsrv.com/)
 2. Execute Xlaunch
 3. Set up the Display number as 0, from Display setting screen.
 ![display setting image](resources/win/a.JPG)
@@ -26,7 +26,7 @@ This document was written on the assumption that aleardy you are friendly with d
 1. execute `docker-compose -f .\project.yml up`
 ![execute docker](resources/win/d.JPG)
 ![docker does work](resources/win/e.JPG)
-2. now, Execute docker ros with `docker exec -it ros2-humble /bin/bash`.
+2. now, Execute docker ros with `docker exec -it ros-humble-ardupilot-sitl /bin/bash`
 ![docker does work](resources/win/f.png)
 3. update and upgrade the Linux...
 ![docker does work](resources/win/g.png)
@@ -51,14 +51,20 @@ This document was written on the assumption that aleardy you are friendly with d
 
 5. execute `docker-compose -f .\project.yml up`
 ![display setting image](resources/mac/f.png)
-6. And then you can execute docker ros with `docker exec -it ros2-humble /bin/bash`.
+6. And then you can execute docker ros with `docker exec -it ros-humble-ardupilot-sitl /bin/bash`
 ![display setting image](resources/mac/g.png)
 7. So... update & upgrade & add ros environment on bashrc!
 ![display setting image](resources/mac/h.png)
 8. Then you can try the turtlesim like this`ros2 run turtlesim turtlesim_node`
 ![docker does work](resources/mac/i.png)
 
-### issue
+# Both (Windows / MacOS)
+1. Now, You have to clone the ArduPilot source code.
+```bash
+git submodule update --init --recursive
+```
+
+# issues
 > In my case, it doesn't work well.
 > So I just tried to launch the XQuartz terminal,
 > ![display setting image](resources/mac/e.png)
